@@ -3,8 +3,8 @@
 Working with Input Files
 ========================
 
-What is a HEM Input JSON file?
-------------------------------
+What is a HEM Input File?
+-------------------------
 
 HEM input files are JSON files which contains all the data (except, in some cases, the weather data) which a HEM calculation requires.
 
@@ -36,7 +36,7 @@ This is because buildings are often made up of a variable number of objects. For
 
 This variable-length, nested information is difficult to store in a tabular data structure like CSV files, but works well in JSON using the object (dictionaries) and array (lists) JSON components.
 
-What are the rules when creating a HEM input file?
+What are the rules when creating a HEM Input File?
 --------------------------------------------------
 
 The contents of the HEM input files are structured according to a schema.
@@ -49,8 +49,8 @@ There are three schemas currently available for HEM:
 
 These schemas are also written in JSON and follow the `JSON Schema <https://json-schema.org/>`__ standard.
 
-How do I use these schema?
---------------------------
+How do I use these schemas?
+---------------------------
 
 The schemas themselves are long text documents which are difficult to use directly.
 

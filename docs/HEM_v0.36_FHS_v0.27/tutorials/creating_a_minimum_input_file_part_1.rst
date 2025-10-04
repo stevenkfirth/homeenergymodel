@@ -346,8 +346,8 @@ Setting the :ref:`control_collection_input_reference_core_hem_allowing_fhs_HEM_v
 
 This seems a good place to end this section. The next step will be to create a minimum input file which both meets the schema validation and which results in a simulation run with no errors.
 
-Conclusion
-----------
+Conclusions
+-----------
 
 * We can create a minimum Input File which passes the HEM schema validation. 
 * However this is not enough to run a simulation as uncaught exceptions still occur.

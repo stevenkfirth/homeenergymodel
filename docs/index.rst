@@ -6,13 +6,15 @@
 Welcome to homeenergymodel.dev
 ==============================
 
-This website is an unofficial developer's guide to the Home Energy Model.
+This website is an unofficial developers guide to the Home Energy Model (HEM).
 
-This includes:
+The official documentation for the Home Energy Model is `here <https://www.gov.uk/government/consultations/home-energy-model-replacement-for-the-standard-assessment-procedure-sap>`__.
 
-* How to download and install the Home Energy Model.
+This website includes:
+
+* How to download and install the HEM repository.
 * How to create and edit the input files.
-* How to run simulations.
+* How to run HEM simulations.
 
 If you have any questions please do `contact me <https://www.stevenfirth.com/contact/>`__.
 
