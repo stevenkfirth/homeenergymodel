@@ -17,7 +17,8 @@ This documentation is for Version 0.36 of the Home Energy Model which is availab
    tutorials/tutorials
    input_reference_core_hem
    input_reference_core_hem_allowing_fhs
-   mythoughts
+
+
 
    
 
