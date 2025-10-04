@@ -1,3 +1,13 @@
+_build/
+_tests/
+_generate_schema_reference.py
+jsonschemaspec.py
+jsonschemavalidationspec.py
+_prompts.txt
+creating_a_minimum_input_file_part_1/
+quickstart/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
