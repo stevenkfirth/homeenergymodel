@@ -20,6 +20,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
                     '_ignore/'
                     ]
 
+html_extra_path = [
+    'CNAME'
+]
+
 
 
 # -- Options for HTML output -------------------------------------------------
