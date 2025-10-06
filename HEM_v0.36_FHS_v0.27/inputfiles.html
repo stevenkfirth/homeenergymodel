@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Working with Input Files &#8212; homeenergymodel.dev  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorials" href="tutorials/tutorials.html" />
+    <link rel="prev" title="An example Input File" href="input_file_example.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="working-with-input-files">
+<span id="input-files-hem-v0-36-fhs-v0-27"></span><h1>Working with Input Files<a class="headerlink" href="#working-with-input-files" title="Link to this heading">¶</a></h1>
+<section id="what-is-a-hem-input-file">
+<h2>What is a HEM Input File?<a class="headerlink" href="#what-is-a-hem-input-file" title="Link to this heading">¶</a></h2>
+<p>HEM input files are JSON files which contains all the data (except, in some cases, the weather data) which a HEM calculation requires.</p>
+<p>This typically includes:</p>
+<ul class="simple">
+<li><p>Information about the building geometry and location.</p></li>
+<li><p>Information about the constructions used in the walls, roof, floors and windows.</p></li>
+<li><p>Information about the heating and cooling systems.</p></li>
+<li><p>Information about many other things which impact on the energy consumption of the building.</p></li>
+</ul>
+</section>
+<section id="what-is-a-json-file">
+<h2>What is a JSON file?<a class="headerlink" href="#what-is-a-json-file" title="Link to this heading">¶</a></h2>
+<p>A JSON file is a standard file format used extensively in computer science.</p>
+<p>It is a text file in the same way as a CSV file. But where CSV files are good at storing tabular data, JSON files are good at storing nested data.</p>
+<p>JSON files are constructed according to: <a class="reference external" href="https://www.json.org/json-en.html">https://www.json.org/json-en.html</a></p>
+</section>
+<section id="why-use-json-files">
+<h2>Why use JSON files?<a class="headerlink" href="#why-use-json-files" title="Link to this heading">¶</a></h2>
+<p>The nested data property of JSON files is useful for building energy models.</p>
+<p>This is because buildings are often made up of a variable number of objects. For example:</p>
+<ul class="simple">
+<li><p>A building can have a variable number of rooms.</p></li>
+<li><p>Each room can have a variable number of lights.</p></li>
+</ul>
+<p>This variable-length, nested information is difficult to store in a tabular data structure like CSV files, but works well in JSON using the object (dictionaries) and array (lists) JSON components.</p>
+</section>
+<section id="what-are-the-rules-when-creating-a-hem-input-file">
+<h2>What are the rules when creating a HEM Input File?<a class="headerlink" href="#what-are-the-rules-when-creating-a-hem-input-file" title="Link to this heading">¶</a></h2>
+<p>The contents of the HEM input files are structured according to a schema.</p>
+<p>There are three schemas currently available for HEM:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/schemas/core-input.json">core-input.json</a>: this is used for validating input files to the core HEM engine.</p></li>
+<li><p><a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/schemas/core-input-allowing-future-homes-standard-input.json">core-input-allowing-future-homes-standard-input.json</a>: this is used for validating input files to the core HEM engine which have been created using the HEM FHS (Future Home Standard) wrapper.</p></li>
+<li><p><a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?path=/src/wrappers/future_homes_standard/FHS_schema.json&amp;version=GTHEM_v0.36_FHS_v0.27">FHS_schema.json</a>: this is used for validating input files to the HEM FHS  wrapper.</p></li>
+</ul>
+<p>These schemas are also written in JSON and follow the <a class="reference external" href="https://json-schema.org/">JSON Schema</a> standard.</p>
+</section>
+<section id="how-do-i-use-these-schemas">
+<h2>How do I use these schemas?<a class="headerlink" href="#how-do-i-use-these-schemas" title="Link to this heading">¶</a></h2>
+<p>The schemas themselves are long text documents which are difficult to use directly.</p>
+<p>Instead I have converted these JSON Schema documents into an online reference which contains the same content and is easier to navigate.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="input_reference_core_hem.html#input-reference-core-hem-hem-v0-36-fhs-v0-27"><span class="std std-ref">Input Reference - core HEM</span></a></p></li>
+<li><p><a class="reference internal" href="input_reference_core_hem_allowing_fhs.html#input-reference-core-hem-allowing-fhs-hem-v0-36-fhs-v0-27"><span class="std std-ref">Input Reference - core HEM allowing FHS</span></a></p></li>
+<li><p>[The <em>FHS_schema.json</em> online reference will be added here when complete]</p></li>
+</ul>
+<p>I can then use these online references to either manually create an input JSON file in a text editor or to write a Python script to create an input JSON file.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">homeenergymodel.dev</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">HEM_v0.36_FHS_v0.27</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installing HEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_file_example.html">An example Input File</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working with Input Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-hem-input-file">What is a HEM Input File?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-json-file">What is a JSON file?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-use-json-files">Why use JSON files?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-the-rules-when-creating-a-hem-input-file">What are the rules when creating a HEM Input File?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-use-these-schemas">How do I use these schemas?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_reference_core_hem.html">Input Reference - core HEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_reference_core_hem_allowing_fhs.html">Input Reference - core HEM allowing FHS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">HEM_v0.36_FHS_v0.27</a><ul>
+      <li>Previous: <a href="input_file_example.html" title="previous chapter">An example Input File</a></li>
+      <li>Next: <a href="tutorials/tutorials.html" title="next chapter">Tutorials</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Steven Firth.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/HEM_v0.36_FHS_v0.27/inputfiles.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
