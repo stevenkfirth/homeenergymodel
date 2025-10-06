@@ -21,7 +21,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
                     ]
 
 html_extra_path = [
-    'CNAME'
+    'CNAME'   # This is needed to that the GitHub action copies this file to the gh-pages branch. This is used to link with the custom domain name (DNS).
 ]
 
 
