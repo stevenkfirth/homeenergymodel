@@ -27,6 +27,7 @@ Steven Firth
    :caption: Contents:
 
    HEM_v0.36_FHS_v0.27/index
+   contribute
    disclaimer
 
 
