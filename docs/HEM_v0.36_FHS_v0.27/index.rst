@@ -3,7 +3,9 @@
 HEM_v0.36_FHS_v0.27
 ===================
 
-This documentation is for Version 0.36 of the Home Energy Model which is available `here <https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27>`__.
+This unofficial documentation is for Version 0.36 of the Home Energy Model by the UK Government.
+
+The official source code is available `here <https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27>`__.
 
 
 .. toctree::
@@ -15,8 +17,10 @@ This documentation is for Version 0.36 of the Home Energy Model which is availab
    input_file_example
    inputfiles
    tutorials/tutorials
+   api/api
    input_reference_core_hem
    input_reference_core_hem_allowing_fhs
+   
 
 
 
