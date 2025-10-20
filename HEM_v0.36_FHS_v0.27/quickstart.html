@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Start &mdash; homeenergymodel.dev  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="An example Input File" href="input_file_example.html" />
+    <link rel="prev" title="Installing HEM" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            homeenergymodel.dev
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">HEM_v0.36_FHS_v0.27</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installing HEM</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-hem-help-guide">The HEM help guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#an-example-simulation">An example simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="input_file_example.html">An example Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputfiles.html">Working with Input Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/api.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_reference_core_hem.html">Input Reference - core HEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_reference_core_hem_allowing_fhs.html">Input Reference - core HEM allowing FHS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">homeenergymodel.dev</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">HEM_v0.36_FHS_v0.27</a></li>
+      <li class="breadcrumb-item active">Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/HEM_v0.36_FHS_v0.27/quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quick-start">
+<span id="quick-start-hem-v0-36-fhs-v0-27"></span><h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h1>
+<section id="the-hem-help-guide">
+<h2>The HEM help guide<a class="headerlink" href="#the-hem-help-guide" title="Link to this heading"></a></h2>
+<p>Once HEM is installed, we can view the help guide of the <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/src/hem.py">hem.py</a> module using <code class="docutils literal notranslate"><span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">--help</span></code> argument.</p>
+<p>Use one of the following command prompts (they do the same thing):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">[PATH_TO_HEM_ROOT_DIRECTORY]\src\hem.py</span> <span class="pre">-h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">[PATH_TO_HEM_ROOT_DIRECTORY]\src\hem.py</span> <span class="pre">--help</span></code></p></li>
+</ul>
+<p>This prints the following help text:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage:<span class="w"> </span>hem.py<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--epw-file<span class="w"> </span>EPW_FILE<span class="o">]</span><span class="w"> </span><span class="o">[</span>--CIBSE-weather-file<span class="w"> </span>CIBSE_WEATHER_FILE<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tariff-file<span class="w"> </span>TARIFF_FILE<span class="o">]</span><span class="w"> </span><span class="o">[</span>--parallel<span class="w"> </span>PARALLEL<span class="o">]</span><span class="w"> </span><span class="o">[</span>--preprocess-only<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--future-homes-standard<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-FEE<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-notA<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-notB<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-FEE-notA<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-FEE-notB<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--heat-balance<span class="o">]</span><span class="w"> </span><span class="o">[</span>--detailed-output-heating-cooling<span class="o">]</span><span class="w"> </span><span class="o">[</span>--no-fast-solver<span class="o">]</span><span class="w"> </span><span class="o">[</span>--display-progress<span class="o">]</span><span class="w"> </span><span class="o">[</span>--no-validate-json<span class="o">]</span>
+<span class="w">            </span>input_file<span class="w"> </span><span class="o">[</span>input_file<span class="w"> </span>...<span class="o">]</span>
+
+Home<span class="w"> </span>Energy<span class="w"> </span>Model<span class="w"> </span><span class="o">(</span>HEM<span class="o">)</span>
+
+positional<span class="w"> </span>arguments:
+input_file<span class="w">            </span>path<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>file<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>containing<span class="w"> </span>building<span class="w"> </span>specifications<span class="w"> </span>to<span class="w"> </span>run
+
+options:
+-h,<span class="w"> </span>--help<span class="w">            </span>show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+--epw-file<span class="w"> </span>EPW_FILE,<span class="w"> </span>-w<span class="w"> </span>EPW_FILE
+<span class="w">                        </span>path<span class="w"> </span>to<span class="w"> </span>weather<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>.epw<span class="w"> </span>format
+--CIBSE-weather-file<span class="w"> </span>CIBSE_WEATHER_FILE
+<span class="w">                        </span>path<span class="w"> </span>to<span class="w"> </span>CIBSE<span class="w"> </span>weather<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>.csv<span class="w"> </span>format
+--tariff-file<span class="w"> </span>TARIFF_FILE
+<span class="w">                        </span>path<span class="w"> </span>to<span class="w"> </span>tariff<span class="w"> </span>data<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>.csv<span class="w"> </span>format
+--parallel<span class="w"> </span>PARALLEL,<span class="w"> </span>-p<span class="w"> </span>PARALLEL
+<span class="w">                        </span>run<span class="w"> </span>calculations<span class="w"> </span><span class="k">for</span><span class="w"> </span>different<span class="w"> </span>input<span class="w"> </span>files<span class="w"> </span><span class="k">in</span><span class="w"> </span>parallel<span class="o">(</span>specify<span class="w"> </span>no<span class="w"> </span>of<span class="w"> </span>files<span class="w"> </span>to<span class="w"> </span>run<span class="w"> </span>simultaneously<span class="o">)</span>
+--preprocess-only<span class="w">     </span>run<span class="w"> </span>prepocessing<span class="w"> </span>step<span class="w"> </span>only
+--future-homes-standard
+<span class="w">                        </span>use<span class="w"> </span>Future<span class="w"> </span>Homes<span class="w"> </span>Standard<span class="w"> </span>calculation<span class="w"> </span>assumptions
+--future-homes-standard-FEE
+<span class="w">                        </span>use<span class="w"> </span>Future<span class="w"> </span>Homes<span class="w"> </span>Standard<span class="w"> </span>Fabric<span class="w"> </span>Energy<span class="w"> </span>Efficiency<span class="w"> </span>assumptions
+--future-homes-standard-notA
+<span class="w">                        </span>use<span class="w"> </span>Future<span class="w"> </span>Homes<span class="w"> </span>Standard<span class="w"> </span>calculation<span class="w"> </span>assumptions<span class="w"> </span><span class="k">for</span><span class="w"> </span>notional<span class="w"> </span>option<span class="w"> </span>A
+--future-homes-standard-notB
+<span class="w">                        </span>use<span class="w"> </span>Future<span class="w"> </span>Homes<span class="w"> </span>Standard<span class="w"> </span>calculation<span class="w"> </span>assumptions<span class="w"> </span><span class="k">for</span><span class="w"> </span>notional<span class="w"> </span>option<span class="w"> </span>B
+--future-homes-standard-FEE-notA
+<span class="w">                        </span>use<span class="w"> </span>Future<span class="w"> </span>Homes<span class="w"> </span>Standard<span class="w"> </span>Fabric<span class="w"> </span>Energy<span class="w"> </span>Efficiency<span class="w"> </span>assumptions<span class="w"> </span><span class="k">for</span><span class="w"> </span>notional<span class="w"> </span>option<span class="w"> </span>A
+--future-homes-standard-FEE-notB
+<span class="w">                        </span>use<span class="w"> </span>Future<span class="w"> </span>Homes<span class="w"> </span>Standard<span class="w"> </span>Fabric<span class="w"> </span>Energy<span class="w"> </span>Efficiency<span class="w"> </span>assumptions<span class="w"> </span><span class="k">for</span><span class="w"> </span>notional<span class="w"> </span>option<span class="w"> </span>B
+--heat-balance<span class="w">        </span>output<span class="w"> </span>heat<span class="w"> </span>balance<span class="w"> </span><span class="k">for</span><span class="w"> </span>each<span class="w"> </span>zone
+--detailed-output-heating-cooling
+<span class="w">                        </span>output<span class="w"> </span>detailed<span class="w"> </span>calculation<span class="w"> </span>results<span class="w"> </span><span class="k">for</span><span class="w"> </span>heating<span class="w"> </span>and<span class="w"> </span>cooling<span class="w"> </span>system<span class="w"> </span>objects<span class="w"> </span><span class="o">(</span>including<span class="w"> </span>HeatSourceWet<span class="w"> </span>objects<span class="o">)</span><span class="w"> </span>where<span class="w"> </span>the<span class="w"> </span>relevant<span class="w"> </span>objects<span class="w"> </span>have<span class="w"> </span>this<span class="w"> </span>functionality
+--no-fast-solver<span class="w">      </span>disable<span class="w"> </span>optimised<span class="w"> </span>solver<span class="w"> </span><span class="o">(</span>results<span class="w"> </span>may<span class="w"> </span>differ<span class="w"> </span>slightly<span class="w"> </span>due<span class="w"> </span>to<span class="w"> </span>reordering<span class="w"> </span>of<span class="w"> </span>floating-point<span class="w"> </span>ops<span class="o">)</span><span class="p">;</span><span class="w"> </span>this<span class="w"> </span>option<span class="w"> </span>is<span class="w"> </span>provided<span class="w"> </span>to<span class="w"> </span>facilitate<span class="w"> </span>verification<span class="w"> </span>and<span class="w"> </span>debugging<span class="w"> </span>of<span class="w"> </span>the
+<span class="w">                        </span>optimised<span class="w"> </span>version
+--display-progress<span class="w">    </span>display<span class="w"> </span>progress<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>json<span class="w"> </span>input<span class="w"> </span>file<span class="w"> </span>currently<span class="w"> </span>running
+--no-validate-json<span class="w">    </span>disable<span class="w"> </span>JSON<span class="w"> </span>schema<span class="w"> </span>validation<span class="w"> </span><span class="o">(</span>useful<span class="w"> </span>during<span class="w"> </span>development<span class="o">)</span>
+</pre></div>
+</div>
+<p>This tells us that when calling the <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/src/hem.py">hem.py</a> module, we should provide the <code class="docutils literal notranslate"><span class="pre">input_file</span></code> argument (as it is a ‘positional argument’) and we can also supply many different options arguments (<code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--epw-file</span></code>, <code class="docutils literal notranslate"><span class="pre">--CIBSE-weather-file</span></code> etc.).</p>
+<p>What do all these arguments do? This doesn’t seem to be documentented anywhere but we can make reasonable guesses given the descriptions above.</p>
+</section>
+<section id="an-example-simulation">
+<span id="an-example-simulation-hem-v0-36-fhs-v0-27"></span><h2>An example simulation<a class="headerlink" href="#an-example-simulation" title="Link to this heading"></a></h2>
+<p>This simulation uses:</p>
+<ul class="simple">
+<li><p>the <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/test/demo_files/core/demo.json">demo.json</a> input file from the HEM repository.</p></li>
+<li><p>the <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/test/demo_files/London_weather_CIBSE_format.csv">London_weather_CIBSE_format.csv</a> weather data file from the HEM repository.</p></li>
+</ul>
+<p>The steps are:</p>
+<ol class="arabic simple">
+<li><p>Save the <em>demo.json</em> and <em>London_weather_CIBSE_format.csv</em> files in the same folder on your local computer.</p></li>
+<li><p>Open the Command Prompt.</p></li>
+<li><p>Change the directory of the Command Prompt to where the files are stored using <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">[PATH_TO_MY_DIRECTORY]</span></code>.</p></li>
+<li><p>Run the prompt: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">[PATH_TO_HEM_ROOT_DIRECTORY]\src\hem.py</span> <span class="pre">--CIBSE-weather-file</span> <span class="pre">London_weather_CIBSE_format.csv</span> <span class="pre">demo.json</span></code>.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span></code> calls the Python interpreter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[PATH_TO_HEM_ROOT_DIRECTORY]</span></code> is the directory where the HEM repository is stored on your computer. Please replace this text with the local path you have used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src\hem.py</span></code> is the path to Python module <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/src/hem.py">hem.py</a> which provides the point of access to the HEM calculations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--CIBSE-weather-file</span></code> is the CIBSE weather data flag as described in the help text above.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">London_weather_CIBSE_format.csv</span></code> is the filepath to the CIBSE weather file (this must follow directly after <code class="docutils literal notranslate"><span class="pre">--CIBSE-weather-file</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">demo.json</span></code> is the filepath to the input file.</p></li>
+</ul>
+</div></blockquote>
+<p>This results in the following text printed in the Command Prompt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Running</span> <span class="mi">1</span> <span class="n">cases</span> <span class="ow">in</span> <span class="n">series</span>
+</pre></div>
+</div>
+<p>This also creates a new subfolder named <em>demo__results</em> (the name of the input file plus ‘__results’) which contains the following results files:</p>
+<ul class="simple">
+<li><p><em>demo.json</em></p></li>
+<li><p><em>demo__core__results.csv</em></p></li>
+<li><p><em>demo__core__results_static.csv</em></p></li>
+<li><p><em>demo__core__results_summary.csv</em></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installing HEM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="input_file_example.html" class="btn btn-neutral float-right" title="An example Input File" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Steven Firth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
