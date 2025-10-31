@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Creating a minimum Input File: Part 1 &mdash; homeenergymodel.dev  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2. Creating a minimum Input File: Part 2" href="creating_a_minimum_input_file_part_2.html" />
+    <link rel="prev" title="Tutorials" href="tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            homeenergymodel.dev
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">HEM_v0.36_FHS_v0.27</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing HEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input_file_example.html">An example Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inputfiles.html">Working with Input Files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Creating a minimum Input File: Part 1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#an-empty-input-file">An empty input file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#an-input-file-with-an-empty-json-object">An input file with an empty JSON object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#an-input-file-with-externalconditions-key-value-pair">An input file with “ExternalConditions” key/value pair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#an-input-file-which-meets-the-source-code-internal-validation-requirements">An input file which meets the source code internal validation requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusions">Conclusions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="creating_a_minimum_input_file_part_2.html">2. Creating a minimum Input File: Part 2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/api.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input_reference_core_hem.html">Input Reference - core HEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input_reference_core_hem_allowing_fhs.html">Input Reference - core HEM allowing FHS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">homeenergymodel.dev</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">HEM_v0.36_FHS_v0.27</a></li>
+          <li class="breadcrumb-item"><a href="tutorials.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">1. Creating a minimum Input File: Part 1</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/HEM_v0.36_FHS_v0.27/tutorials/creating_a_minimum_input_file_part_1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="creating-a-minimum-input-file-part-1">
+<span id="creating-a-minimum-input-file-part-1-hem-v0-36-fhs-v0-27"></span><h1>1. Creating a minimum Input File: Part 1<a class="headerlink" href="#creating-a-minimum-input-file-part-1" title="Link to this heading"></a></h1>
+<p>A useful way to start to understand the input files for building simulation models is to create the smallest possible input file from scratch.</p>
+<p>This section creates a minimum input file for core HEM which validates against the core HEM JSON Schema.</p>
+<section id="an-empty-input-file">
+<h2>An empty input file<a class="headerlink" href="#an-empty-input-file" title="Link to this heading"></a></h2>
+<p>For the core HEM model, if we first take an empty input file:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">in.json</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<p>… and then run a simulation using an EPW weather file named <em>in.epw</em>:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Command prompt input</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>hem.py<span class="w"> </span>-w<span class="w"> </span><span class="k">in</span>.epw<span class="w"> </span><span class="k">in</span>.json
+</pre></div>
+</div>
+</div>
+<p>This gives the following output:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Command Prompt output</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span><span class="n">stdout</span><span class="o">---</span>
+
+<span class="n">Running</span> <span class="mi">1</span> <span class="n">cases</span> <span class="ow">in</span> <span class="n">series</span>
+
+<span class="o">---</span><span class="n">stderr</span><span class="o">---</span>
+
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1104</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+
+   <span class="n">run_project</span><span class="p">(</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">141</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_project</span>
+
+   <span class="n">shading_segments</span> <span class="o">=</span> <span class="n">project_dict</span><span class="p">[</span><span class="s2">&quot;ExternalConditions&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shading_segments&quot;</span><span class="p">)</span>
+
+                     <span class="o">~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">string</span> <span class="n">indices</span> <span class="n">must</span> <span class="n">be</span> <span class="n">integers</span><span class="p">,</span> <span class="ow">not</span> <span class="s1">&#39;str&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>Hmm… not a good start. Given an empty input file and an EPW weather file, we get an uncaught exception (an error) and the programme code stops executing with automatically generated error message.</p>
+<p>This isn’t good practice. Errors are a normal part of programming, but good software will return an error message that provides information to the user on how to fix the problem.</p>
+<p>This problem occurs because we have provided an empty file (an empty string) as the input file and HEM is expecting an JSON object as the root object in the input file. The <em>TypeError</em> occurs because <code class="docutils literal notranslate"><span class="pre">project_dict</span></code> is now a string, whereas the HEM code is expecting it to be a dictionary. A useful error message in this case would be:</p>
+<blockquote>
+<div><p>“The root object in the input file should be a JSON object, not a JSON string.”</p>
+</div></blockquote>
+<p>Looking at the source code in <em>hem.py</em> this issue should be picked up by the validation of the JSON input on line 162. The issue is that the error is happening on line 141, i.e. the input JSON is being queried by the code before the validation takes place.</p>
+</section>
+<section id="an-input-file-with-an-empty-json-object">
+<h2>An input file with an empty JSON object<a class="headerlink" href="#an-input-file-with-an-empty-json-object" title="Link to this heading"></a></h2>
+<p>Let’s change the input file to an empty JSON object:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">in.json</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<p>We now see a new error message:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Command Prompt output</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span><span class="n">stdout</span><span class="o">---</span>
+
+<span class="n">Running</span> <span class="mi">1</span> <span class="n">cases</span> <span class="ow">in</span> <span class="n">series</span>
+
+<span class="o">---</span><span class="n">stderr</span><span class="o">---</span>
+
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1104</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+
+   <span class="n">run_project</span><span class="p">(</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">141</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_project</span>
+
+   <span class="n">shading_segments</span> <span class="o">=</span> <span class="n">project_dict</span><span class="p">[</span><span class="s2">&quot;ExternalConditions&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shading_segments&quot;</span><span class="p">)</span>
+
+                     <span class="o">~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;ExternalConditions&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>The uncaught exception has changed from <em>TypeError</em> to <em>KeyError</em>. In this case <cite>project_dict</cite> is the correct type, a dictionary, but it is an empty dictionary which doesn’t contain an item with a key ‘ExternalConditions’.</p>
+<p>Similar to the last example, this would be picked up by the JSON validation. The schema states that ‘ExternalConditions’ is a required property of the root object.</p>
+</section>
+<section id="an-input-file-with-externalconditions-key-value-pair">
+<h2>An input file with “ExternalConditions” key/value pair<a class="headerlink" href="#an-input-file-with-externalconditions-key-value-pair" title="Link to this heading"></a></h2>
+<p>OK, let’s fix this particular bug by including an “ExternalConditions” key/value pair in the root JSON object.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">in.json</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;ExternalConditions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Now we get a much larger, but more meaningful error message:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Command Prompt output</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span><span class="n">stdout</span><span class="o">---</span>
+
+<span class="n">Running</span> <span class="mi">1</span> <span class="n">cases</span> <span class="ow">in</span> <span class="n">series</span>
+
+<span class="o">---</span><span class="n">stderr</span><span class="o">---</span>
+
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">85</span><span class="p">,</span> <span class="ow">in</span> <span class="n">validate_json_input</span>
+
+   <span class="n">InputFHS</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">project_dict</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:\ProgramData\Anaconda3\Lib\site-packages\pydantic\main.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">503</span><span class="p">,</span> <span class="ow">in</span> <span class="n">model_validate</span>
+
+   <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__pydantic_validator__</span><span class="o">.</span><span class="n">validate_python</span><span class="p">(</span>
+
+         <span class="o">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="n">pydantic_core</span><span class="o">.</span><span class="n">_pydantic_core</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">:</span> <span class="mi">11</span> <span class="n">validation</span> <span class="n">errors</span> <span class="k">for</span> <span class="n">InputFHS</span>
+
+<span class="n">ColdWaterSource</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">Control</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">EnergySupply</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">Events</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">HotWaterDemand</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">HotWaterSource</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">InfiltrationVentilation</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">InternalGains</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">SimulationTime</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">Zone</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+<span class="n">temp_internal_air_static_calcs</span>
+
+<span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;...version_needed&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+
+   <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.5</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+
+
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+
+
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1104</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+
+   <span class="n">run_project</span><span class="p">(</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">162</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_project</span>
+
+   <span class="n">validate_json_input</span><span class="p">(</span><span class="n">project_dict</span><span class="p">,</span> <span class="n">inp_filename</span><span class="p">,</span> <span class="n">display_progress</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">89</span><span class="p">,</span> <span class="ow">in</span> <span class="n">validate_json_input</span>
+
+   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\u2717</span><span class="s2"> JSON validation failed for </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:\ProgramData\Anaconda3\Lib\encodings\cp1252.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">19</span><span class="p">,</span> <span class="ow">in</span> <span class="n">encode</span>
+
+   <span class="k">return</span> <span class="n">codecs</span><span class="o">.</span><span class="n">charmap_encode</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span><span class="n">encoding_table</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+         <span class="o">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="ne">UnicodeEncodeError</span><span class="p">:</span> <span class="s1">&#39;charmap&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="s1">&#39;t encode character &#39;</span>\<span class="n">u2717</span><span class="s1">&#39; in position 0: character maps to &lt;undefined&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>There are two separate errors here.</p>
+<p>The first is a <em>ValidationError</em> which tells us that there are 11 key/value pairs missing in the root JSON object. These are listed as “ColdWaterSource”, “Control”, “EnergySupply” etc. This is a useful error message and tells us what we need to change in the input file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This validation is actually being done accoring to the <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/schemas/core-input-allowing-future-homes-standard-input.json">core-input-allowing-future-homes-standard-input.json</a> schema (see <em>hem.py</em>, line 85).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Internally, the validation is done using the Pydantic classmethod <a class="reference external" href="https://docs.pydantic.dev/latest/api/base_model/#pydantic.BaseModel.model_validate">BaseModel.model_validate</a>. This is because the input schema is actually defined using Pydantic classes in the <em>core/input.py</em> and <em>core/input_allowing_future_homes_standard_input.py</em> modules. The JSON schemas in the folder ‘schemas’ is automatically generated from these Pydantic classes using <em>tools/generate_json_schemas.py</em>.</p>
+</div>
+<p>The second error message is a <em>UnicodeEncodeError</em> message. This is an internal error in the source code, as <em>hem.py</em> line 89 attempts to print a message with an unusual character in it (unicode u2717 which looks like a cross mark). This may work on other operating systems, but for the Python interpreter on my Windows laptop this results in an uncaught exception. It would be easily fixed by removing the unicode character.</p>
+</section>
+<section id="an-input-file-which-meets-the-source-code-internal-validation-requirements">
+<h2>An input file which meets the source code internal validation requirements<a class="headerlink" href="#an-input-file-which-meets-the-source-code-internal-validation-requirements" title="Link to this heading"></a></h2>
+<p>OK, let’s create an input file which will pass the internal validation process of the HEM source code. I created this file by fixing the errors in the previous error message, fixing any subsequent error messages that occurred and by studying the requirements of the <a class="reference internal" href="../input_reference_core_hem_allowing_fhs.html#inputfhs-input-reference-core-hem-allowing-fhs-hem-v0-36-fhs-v0-27"><span class="std std-ref">InputFHS</span></a> JSON object in <a class="reference internal" href="../input_reference_core_hem_allowing_fhs.html#input-reference-core-hem-allowing-fhs-hem-v0-36-fhs-v0-27"><span class="std std-ref">Input Reference - core HEM allowing FHS</span></a>.</p>
+<p>Here is the new input file:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">in.json</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;ColdWaterSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;my_cold_water_source_1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;start_day&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;temperatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">               </span><span class="mf">8.0</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;time_series_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;Control&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;EnergySupply&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;my_energy_supply_1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;fuel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;electricity&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;is_export_capable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;Events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">   </span><span class="nt">&quot;ExternalConditions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">   </span><span class="nt">&quot;HotWaterDemand&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">   </span><span class="nt">&quot;HotWaterSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;hw cylinder&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PointOfUse&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ColdWaterSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_cold_water_source_1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;EnergySupply&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_energy_supply_1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;efficiency&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setpoint_temp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;InfiltrationVentilation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Leaks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;env_area&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;test_pressure&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;test_result&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ventilation_zone_height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;Vents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">      </span><span class="nt">&quot;altitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;cross_vent_possible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;shield_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Normal&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;terrain_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Suburban&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ventilation_zone_base_height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;InternalGains&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">   </span><span class="nt">&quot;SimulationTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8760</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;Zone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">   </span><span class="nt">&quot;temp_internal_air_static_calcs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Now when we run HEM there is a new error message:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Command Prompt output</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span><span class="n">stdout</span><span class="o">---</span>
+
+<span class="n">Running</span> <span class="mi">1</span> <span class="n">cases</span> <span class="ow">in</span> <span class="n">series</span>
+
+<span class="o">---</span><span class="n">stderr</span><span class="o">---</span>
+
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1104</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+
+   <span class="n">run_project</span><span class="p">(</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cvskf</span><span class="se">\\</span><span class="s2">HEM</span><span class="se">\\</span><span class="s2">HEM_v0.36_FHS_v0.27</span><span class="se">\\</span><span class="s2">src</span><span class="se">\\</span><span class="s2">hem.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">175</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_project</span>
+
+   <span class="n">project</span> <span class="o">=</span> <span class="n">Project</span><span class="p">(</span><span class="n">project_dict</span><span class="p">,</span> <span class="n">heat_balance</span><span class="p">,</span> <span class="n">detailed_output_heating_cooling</span><span class="p">,</span> <span class="n">use_fast_solver</span><span class="p">,</span> <span class="n">tariff_data_filename</span><span class="p">,</span> <span class="n">display_progress</span><span class="p">)</span>
+
+            <span class="o">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:\Users\cvskf\HEM\HEM_v0.36_FHS_v0.27\src\core\project.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">537</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__init__</span>
+
+   <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">proj_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+                     <span class="o">^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;NoneType&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;items&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>There are now no validation errors occurring, so in the input file passes the schema validation stage.</p>
+<p>However there is now an uncaught <em>AttributeError</em> exception. This is because the code is expecting <code class="docutils literal notranslate"><span class="pre">proj_dict['Control']</span></code> to be a dictionary, whereas in this example it is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Setting the <a class="reference internal" href="../input_reference_core_hem_allowing_fhs.html#control-collection-input-reference-core-hem-allowing-fhs-hem-v0-36-fhs-v0-27"><span class="std std-ref">Control collection</span></a> JSON value of the <code class="docutils literal notranslate"><span class="pre">Control</span></code> key/value pair to <code class="docutils literal notranslate"><span class="pre">None</span></code> is allowed by the schema, but this option raises an error in the code. So it seems there is a mismatch between the schema and the source code here.</p>
+<p>This seems a good place to end this section. The next step will be to create a minimum input file which both meets the schema validation and which results in a simulation run with no errors.</p>
+</section>
+<section id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>We can create a minimum Input File which passes the HEM schema validation.</p></li>
+<li><p>However this is not enough to run a simulation as uncaught exceptions still occur.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="creating_a_minimum_input_file_part_2.html" class="btn btn-neutral float-right" title="2. Creating a minimum Input File: Part 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Steven Firth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

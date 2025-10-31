@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installing HEM &mdash; homeenergymodel.dev  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quick Start" href="quickstart.html" />
+    <link rel="prev" title="HEM_v0.36_FHS_v0.27" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            homeenergymodel.dev
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">HEM_v0.36_FHS_v0.27</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing HEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#is-hem-a-python-package">Is HEM a Python package?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-download-hem">How to download HEM?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-run-hem">How to run HEM?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help-i-get-an-error">Help! I get an error</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_file_example.html">An example Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputfiles.html">Working with Input Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/api.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_reference_core_hem.html">Input Reference - core HEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_reference_core_hem_allowing_fhs.html">Input Reference - core HEM allowing FHS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">homeenergymodel.dev</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">HEM_v0.36_FHS_v0.27</a></li>
+      <li class="breadcrumb-item active">Installing HEM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/HEM_v0.36_FHS_v0.27/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installing-hem">
+<span id="installation-hem-v0-36-fhs-v0-27"></span><h1>Installing HEM<a class="headerlink" href="#installing-hem" title="Link to this heading"></a></h1>
+<section id="is-hem-a-python-package">
+<h2>Is HEM a Python package?<a class="headerlink" href="#is-hem-a-python-package" title="Link to this heading"></a></h2>
+<p>No, HEM is written in Python but it is not a standard Python package.</p>
+<p>Standard Python packages are typically hosted on <a class="reference external" href="https://pypi.org/">PyPi</a>, can be installed using the command prompt <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">...</span></code> and are called using Python <code class="docutils literal notranslate"><span class="pre">import</span></code> statements.</p>
+<p>Instead HEM is written as a standalone Python programme that is is called using the Command Prompt.</p>
+</section>
+<section id="how-to-download-hem">
+<h2>How to download HEM?<a class="headerlink" href="#how-to-download-hem" title="Link to this heading"></a></h2>
+<p>HEM is hosted as a repository here: <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27">https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27</a></p>
+<p>The entire HEM repository can be downloaded by following the link above and selecting the ‘Download as Zip’ option (available in the More Actions button).</p>
+<p>There are some long filenames in the HEM repository, so you may need to place it in a directory with a short pathname before extracting the files from the ZIP file.</p>
+</section>
+<section id="how-to-run-hem">
+<h2>How to run HEM?<a class="headerlink" href="#how-to-run-hem" title="Link to this heading"></a></h2>
+<p>A quick test of HEM can be done by:</p>
+<ul class="simple">
+<li><p>Opening the Command Prompt</p></li>
+<li><p>Type the command <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">[PATH_TO_HEM_ROOT_DIRECTORY]\src\hem.py</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span></code> calls the Python interpreter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[PATH_TO_HEM_ROOT_DIRECTORY]</span></code> is the directory where the HEM repository is stored on your computer. Please replace this text with the local path you have used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src\hem.py</span></code> is the path to Python module <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/src/hem.py">hem.py</a> which provides the point of access to the HEM calculations.</p></li>
+</ul>
+</li>
+<li><p>On my computer, this prompt looks like <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&quot;C:\Users\cvskf\HEM\HEM_v0.36_FHS_v0.27\src\hem.py&quot;</span></code>.</p></li>
+</ul>
+<p>You should see the following output in the Command Prompt window:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage:<span class="w"> </span>hem.py<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--epw-file<span class="w"> </span>EPW_FILE<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--CIBSE-weather-file<span class="w"> </span>CIBSE_WEATHER_FILE<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--tariff-file<span class="w"> </span>TARIFF_FILE<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--parallel<span class="w"> </span>PARALLEL<span class="o">]</span><span class="w"> </span><span class="o">[</span>--preprocess-only<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--future-homes-standard<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-FEE<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-notA<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-notB<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-FEE-notA<span class="w"> </span><span class="p">|</span><span class="w"> </span>--future-homes-standard-FEE-notB<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--heat-balance<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--detailed-output-heating-cooling<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--no-fast-solver<span class="o">]</span><span class="w"> </span><span class="o">[</span>--display-progress<span class="o">]</span>
+<span class="w">            </span><span class="o">[</span>--no-validate-json<span class="o">]</span>
+<span class="w">            </span>input_file<span class="w"> </span><span class="o">[</span>input_file<span class="w"> </span>...<span class="o">]</span>
+hem.py:<span class="w"> </span>error:<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>arguments<span class="w"> </span>are<span class="w"> </span>required:<span class="w"> </span>input_file
+</pre></div>
+</div>
+<p>This means that the <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/src/hem.py">hem.py</a> module was successfully called and it returned its standard help text and an error message (as no input file was supplied).</p>
+<p>For an example of a complete simulation run, see <a class="reference internal" href="quickstart.html#an-example-simulation-hem-v0-36-fhs-v0-27"><span class="std std-ref">An example simulation</span></a>.</p>
+</section>
+<section id="help-i-get-an-error">
+<h2>Help! I get an error<a class="headerlink" href="#help-i-get-an-error" title="Link to this heading"></a></h2>
+<p>If you get an error when trying to run HEM as described, this is likely to be one of two things:</p>
+<ol class="arabic">
+<li><p>The filepath supplied to the Command Prompt was incorrect. The error message should say that the file cannot be found, for example: <code class="docutils literal notranslate"><span class="pre">[Errno</span> <span class="pre">2]</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code>.</p></li>
+<li><p>There is an <code class="docutils literal notranslate"><span class="pre">import</span></code> error. This is likely because HEM uses additional Python packages and these need installing as well. If a required package is not installed, then an <code class="docutils literal notranslate"><span class="pre">import</span></code> error will occur. These packages are listed in the <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;path=/requirements_3-12.txt">requirements_3-12.txt</a> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cython</span><span class="o">==</span><span class="mf">3.0.6</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">2.1.0</span>
+<span class="n">scipy</span><span class="o">==</span><span class="mf">1.14.1</span>
+<span class="n">pandas</span><span class="o">==</span><span class="mf">2.2.2</span>
+<span class="n">matplotlib</span><span class="o">==</span><span class="mf">3.9.3</span>
+<span class="n">pytest</span><span class="o">==</span><span class="mf">8.3.2</span>
+<span class="n">ruff</span><span class="o">==</span><span class="mf">0.11.8</span>
+<span class="n">pre</span><span class="o">-</span><span class="n">commit</span><span class="o">==</span><span class="mf">4.2.0</span>
+<span class="n">jsonschema</span><span class="o">==</span><span class="mf">4.23.0</span>
+<span class="n">pydantic</span><span class="o">==</span><span class="mf">2.11.4</span>
+</pre></div>
+</div>
+<p>For standard PyPi Python packages installed using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">...</span></code> these additional requirements are installed automatically.</p>
+<p>But as HEM is only available as a downloaded repository, we need to install these packages manually. You can either:</p>
+<ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> to install any missing packages into your current Python environment, or;</p></li>
+<li><p>create a new Python virtual environment (perhaps one dedicated to running HEM) and use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements_3-12.txt</span></code> to install all packages at once (see official instructions <a class="reference external" href="https://dev.azure.com/Sustenic/Home%20Energy%20Model%20Reference/_git/Home%20Energy%20Model?version=GTHEM_v0.36_FHS_v0.27&amp;anchor=installing-dependencies">here</a>).</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="HEM_v0.36_FHS_v0.27" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Steven Firth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

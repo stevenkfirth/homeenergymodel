@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Creating a minimum Input File: Part 2 &mdash; homeenergymodel.dev  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API Reference" href="../api/api.html" />
+    <link rel="prev" title="1. Creating a minimum Input File: Part 1" href="creating_a_minimum_input_file_part_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            homeenergymodel.dev
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">HEM_v0.36_FHS_v0.27</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing HEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input_file_example.html">An example Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inputfiles.html">Working with Input Files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="creating_a_minimum_input_file_part_1.html">1. Creating a minimum Input File: Part 1</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2. Creating a minimum Input File: Part 2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#method">Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#points-to-note">Points to note</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-hem-minimum-input-json">The HEM minimum input JSON</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-code">Python code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusions">Conclusions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/api.html">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input_reference_core_hem.html">Input Reference - core HEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input_reference_core_hem_allowing_fhs.html">Input Reference - core HEM allowing FHS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">homeenergymodel.dev</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">HEM_v0.36_FHS_v0.27</a></li>
+          <li class="breadcrumb-item"><a href="tutorials.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">2. Creating a minimum Input File: Part 2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/HEM_v0.36_FHS_v0.27/tutorials/creating_a_minimum_input_file_part_2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="creating-a-minimum-input-file-part-2">
+<span id="creating-a-minimum-input-file-part-2-hem-v0-36-fhs-v0-27"></span><h1>2. Creating a minimum Input File: Part 2<a class="headerlink" href="#creating-a-minimum-input-file-part-2" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This tutorial creates a HEM minimum input file which runs a full 12-month HEM calculation.</p>
+<p>A minimum input file is the smallest input file possible which is valid and will run a simulation without an errors occuring.</p>
+<p>This tutorial provides:</p>
+<ul class="simple">
+<li><p>The JSON for a HEM minimum input file.</p></li>
+<li><p>The Python code used to create the HEM minimum input file.</p></li>
+</ul>
+</section>
+<section id="method">
+<h2>Method<a class="headerlink" href="#method" title="Link to this heading"></a></h2>
+<p>This was done by taking the ‘demo.json’ example file provided in the official HEM respository and then removing or editing items.</p>
+<ul class="simple">
+<li><p>If an item was removed and an error occured when running a simulation,  then the item was placed back in the input file.</p></li>
+<li><p>If the value of an item was set to zero and an error occurred when running a simulation, then the value was set to a non-zero value.</p></li>
+</ul>
+</section>
+<section id="points-to-note">
+<h2>Points to note<a class="headerlink" href="#points-to-note" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This minimum input file takes around 10 seconds to run a 12-month simulation.</p></li>
+<li><p>It doesn’t seem to be possible to use schedules for defining some hourly input values such as the ColdWaterSource temperatures. Instead a 8,760-item Python list was created using <code class="docutils literal notranslate"><span class="pre">[0]</span> <span class="pre">*</span> <span class="pre">8760</span></code> or similar.</p></li>
+<li><p>Some inputs are required even if they are not used, such as the Event ‘Other’ item or the HotWaterDemand ‘Distribution’ item.</p></li>
+<li><p>The HotWaterSource ‘hw cylinder’ item is required, even if there is no hot water cylinder present in the dwelling.</p></li>
+</ul>
+</section>
+<section id="the-hem-minimum-input-json">
+<h2>The HEM minimum input JSON<a class="headerlink" href="#the-hem-minimum-input-json" title="Link to this heading"></a></h2>
+<p>This input file represents a dwelling with a single wall, no ventilation, no hot water demand, no internal gains, no appliance gains and no solar gains through windows.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">The HEM minimum input file as a JSON file.</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;ApplianceGains&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">   </span><span class="nt">&quot;ColdWaterSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;MAINS_WATER&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;start_day&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;temperatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">               </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">               </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">               </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">               </span><span class="s2">&quot;... [extra rows deleted here] ...&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">               </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">               </span><span class="mi">0</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;time_series_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;Control&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;HW_SETPOINT_TEMP_MAX&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SetpointTimeControl&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;start_day&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;time_series_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;schedule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                  </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;repeat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8760</span>
+<span class="w">                  </span><span class="p">}</span>
+<span class="w">               </span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;HEATING_SETPOINT_TEMP&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SetpointTimeControl&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;start_day&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;time_series_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;schedule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                  </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;repeat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8760</span>
+<span class="w">                  </span><span class="p">}</span>
+<span class="w">               </span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;HW_SETPOINT_TEMP_MIN&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SetpointTimeControl&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;start_day&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;time_series_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;schedule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                  </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;repeat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8760</span>
+<span class="w">                  </span><span class="p">}</span>
+<span class="w">               </span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;EnergySupply&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;MAINS_ELEC&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;fuel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;electricity&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;is_export_capable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;Events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Other&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;OTHER&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">               </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8760</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">               </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;ExternalConditions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;shading_segments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;start360&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;end360&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">360</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;HotWaterDemand&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Distribution&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;HotWaterSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;hw cylinder&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;StorageTank&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;volume&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;daily_losses&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;init_temp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ColdWaterSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MAINS_WATER&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;HeatSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;IMMERSION&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ImmersionHeater&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;EnergySupply&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MAINS_ELEC&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;Controlmin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HW_SETPOINT_TEMP_MIN&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;Controlmax&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HW_SETPOINT_TEMP_MAX&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;heater_position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;thermostat_position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.33</span>
+<span class="w">               </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;InternalGains&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">   </span><span class="nt">&quot;InfiltrationVentilation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;cross_vent_possible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;shield_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Normal&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;terrain_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OpenField&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ventilation_zone_base_height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;altitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Vents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">      </span><span class="nt">&quot;Leaks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;ventilation_zone_height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;test_pressure&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;test_result&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;env_area&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;SimulationTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8760</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;SpaceHeatSystem&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;MAIN_HEATING&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;InstantElecHeater&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;rated_power&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">6.0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;frac_convective&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Control&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HEATING_SETPOINT_TEMP&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;EnergySupply&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MAINS_ELEC&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;Zone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;ZONE_1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;SpaceHeatSystem&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MAIN_HEATING&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;area&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;volume&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;temp_setpnt_init&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;BuildingElement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;WALL_0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BuildingElementOpaque&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;solar_absorption_coeff&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;thermal_resistance_construction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;areal_heat_capacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">19000</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;mass_distribution_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IE&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;pitch&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;orientation360&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;base_height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;area&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<span class="w">               </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;ThermalBridging&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;temp_internal_air_static_calcs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="python-code">
+<h2>Python code<a class="headerlink" href="#python-code" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Python code to create the minimum HEM input file as above</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This creates a minimum HEM input file from scratch.</span>
+<span class="c1"># - `in_dict` is a dictionary representing the Input (root) JSON object.</span>
+<span class="c1"># - CAPITALS are used for any user-defined names.</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">in_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># ApplianceGains</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;ApplianceGains&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># ColdWaterSource</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;ColdWaterSource&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;ColdWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;MAINS_WATER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;ColdWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;MAINS_WATER&#39;</span><span class="p">][</span><span class="s1">&#39;start_day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;ColdWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;MAINS_WATER&#39;</span><span class="p">][</span><span class="s1">&#39;temperatures&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">8760</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;ColdWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;MAINS_WATER&#39;</span><span class="p">][</span><span class="s1">&#39;time_series_step&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Control</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MAX&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MAX&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SetpointTimeControl&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MAX&#39;</span><span class="p">][</span><span class="s1">&#39;start_day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MAX&#39;</span><span class="p">][</span><span class="s1">&#39;time_series_step&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MAX&#39;</span><span class="p">][</span><span class="s1">&#39;schedule&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MAX&#39;</span><span class="p">][</span><span class="s1">&#39;schedule&#39;</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span> <span class="s1">&#39;repeat&#39;</span><span class="p">:</span> <span class="mi">8760</span><span class="p">}]</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HEATING_SETPOINT_TEMP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HEATING_SETPOINT_TEMP&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SetpointTimeControl&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HEATING_SETPOINT_TEMP&#39;</span><span class="p">][</span><span class="s1">&#39;start_day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HEATING_SETPOINT_TEMP&#39;</span><span class="p">][</span><span class="s1">&#39;time_series_step&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HEATING_SETPOINT_TEMP&#39;</span><span class="p">][</span><span class="s1">&#39;schedule&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HEATING_SETPOINT_TEMP&#39;</span><span class="p">][</span><span class="s1">&#39;schedule&#39;</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;repeat&#39;</span><span class="p">:</span> <span class="mi">8760</span><span class="p">}]</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MIN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MIN&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SetpointTimeControl&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MIN&#39;</span><span class="p">][</span><span class="s1">&#39;start_day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MIN&#39;</span><span class="p">][</span><span class="s1">&#39;time_series_step&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MIN&#39;</span><span class="p">][</span><span class="s1">&#39;schedule&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Control&#39;</span><span class="p">][</span><span class="s1">&#39;HW_SETPOINT_TEMP_MIN&#39;</span><span class="p">][</span><span class="s1">&#39;schedule&#39;</span><span class="p">][</span><span class="s1">&#39;main&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s1">&#39;repeat&#39;</span><span class="p">:</span> <span class="mi">8760</span><span class="p">}]</span>
+
+<span class="c1"># EnergySupply</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;EnergySupply&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;EnergySupply&#39;</span><span class="p">][</span><span class="s1">&#39;MAINS_ELEC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;EnergySupply&#39;</span><span class="p">][</span><span class="s1">&#39;MAINS_ELEC&#39;</span><span class="p">][</span><span class="s1">&#39;fuel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;electricity&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;EnergySupply&#39;</span><span class="p">][</span><span class="s1">&#39;MAINS_ELEC&#39;</span><span class="p">][</span><span class="s1">&#39;is_export_capable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Events</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Events&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Events&#39;</span><span class="p">][</span><span class="s1">&#39;Other&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Events&#39;</span><span class="p">][</span><span class="s1">&#39;Other&#39;</span><span class="p">][</span><span class="s1">&#39;OTHER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">:</span> <span class="mi">8760</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}]</span>
+
+<span class="c1"># ExternalConditions</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">][</span><span class="s1">&#39;shading_segments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;ExternalConditions&#39;</span><span class="p">][</span><span class="s1">&#39;shading_segments&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;start360&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;end360&#39;</span><span class="p">:</span> <span class="mi">360</span><span class="p">})</span>
+
+<span class="c1"># HotWaterDemand</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterDemand&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterDemand&#39;</span><span class="p">][</span><span class="s1">&#39;Distribution&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># HotWaterSource</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;StorageTank&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;volume&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;daily_losses&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;init_temp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">55</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;ColdWaterSource&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MAINS_WATER&quot;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;HeatSource&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;HeatSource&#39;</span><span class="p">][</span><span class="s1">&#39;IMMERSION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;HeatSource&#39;</span><span class="p">][</span><span class="s1">&#39;IMMERSION&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ImmersionHeater&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;HeatSource&#39;</span><span class="p">][</span><span class="s1">&#39;IMMERSION&#39;</span><span class="p">][</span><span class="s1">&#39;power&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;HeatSource&#39;</span><span class="p">][</span><span class="s1">&#39;IMMERSION&#39;</span><span class="p">][</span><span class="s1">&#39;EnergySupply&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MAINS_ELEC&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;HeatSource&#39;</span><span class="p">][</span><span class="s1">&#39;IMMERSION&#39;</span><span class="p">][</span><span class="s1">&#39;Controlmin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;HW_SETPOINT_TEMP_MIN&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;HeatSource&#39;</span><span class="p">][</span><span class="s1">&#39;IMMERSION&#39;</span><span class="p">][</span><span class="s1">&#39;Controlmax&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;HW_SETPOINT_TEMP_MAX&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;HeatSource&#39;</span><span class="p">][</span><span class="s1">&#39;IMMERSION&#39;</span><span class="p">][</span><span class="s1">&#39;heater_position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;HotWaterSource&#39;</span><span class="p">][</span><span class="s1">&#39;hw cylinder&#39;</span><span class="p">][</span><span class="s1">&#39;HeatSource&#39;</span><span class="p">][</span><span class="s1">&#39;IMMERSION&#39;</span><span class="p">][</span><span class="s1">&#39;thermostat_position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.33</span>
+
+<span class="c1"># InternalGains</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InternalGains&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># InfiltrationVentilation</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;cross_vent_possible&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;shield_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Normal&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;terrain_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;OpenField&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;ventilation_zone_base_height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;altitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;Vents&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;Leaks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;Leaks&#39;</span><span class="p">][</span><span class="s1">&#39;ventilation_zone_height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;Leaks&#39;</span><span class="p">][</span><span class="s1">&#39;test_pressure&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;Leaks&#39;</span><span class="p">][</span><span class="s1">&#39;test_result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;InfiltrationVentilation&#39;</span><span class="p">][</span><span class="s1">&#39;Leaks&#39;</span><span class="p">][</span><span class="s1">&#39;env_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># SimulationTime</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SimulationTime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SimulationTime&#39;</span><span class="p">][</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SimulationTime&#39;</span><span class="p">][</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8760</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SimulationTime&#39;</span><span class="p">][</span><span class="s1">&#39;step&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># SpaceHeatSystem</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SpaceHeatSystem&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SpaceHeatSystem&#39;</span><span class="p">][</span><span class="s1">&#39;MAIN_HEATING&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SpaceHeatSystem&#39;</span><span class="p">][</span><span class="s1">&#39;MAIN_HEATING&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;InstantElecHeater&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SpaceHeatSystem&#39;</span><span class="p">][</span><span class="s1">&#39;MAIN_HEATING&#39;</span><span class="p">][</span><span class="s1">&#39;rated_power&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">6.0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SpaceHeatSystem&#39;</span><span class="p">][</span><span class="s1">&#39;MAIN_HEATING&#39;</span><span class="p">][</span><span class="s1">&#39;frac_convective&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SpaceHeatSystem&#39;</span><span class="p">][</span><span class="s1">&#39;MAIN_HEATING&#39;</span><span class="p">][</span><span class="s1">&#39;Control&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;HEATING_SETPOINT_TEMP&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;SpaceHeatSystem&#39;</span><span class="p">][</span><span class="s1">&#39;MAIN_HEATING&#39;</span><span class="p">][</span><span class="s1">&#39;EnergySupply&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MAINS_ELEC&#39;</span>
+
+<span class="c1"># Zone</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;SpaceHeatSystem&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MAIN_HEATING&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;volume&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;temp_setpnt_init&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;BuildingElementOpaque&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;solar_absorption_coeff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;thermal_resistance_construction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;areal_heat_capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">19000</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;mass_distribution_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;IE&#39;</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;pitch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;orientation360&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;base_height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;BuildingElement&#39;</span><span class="p">][</span><span class="s1">&#39;WALL_0&#39;</span><span class="p">][</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;Zone&#39;</span><span class="p">][</span><span class="s1">&#39;ZONE_1&#39;</span><span class="p">][</span><span class="s1">&#39;ThermalBridging&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># temp_internal_air_static_calcs</span>
+<span class="n">in_dict</span><span class="p">[</span><span class="s1">&#39;temp_internal_air_static_calcs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># --- save file ---</span>
+<span class="n">fp_in</span> <span class="o">=</span> <span class="s1">&#39;in_temp.json&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fp_in</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">in_dict</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>We can create a minimum input file which passes the HEM schema validation and which runs a full 12-month HEM calculaton.</p></li>
+<li><p>This minimum input file provides a template or foundation which can be used to construct more complex input files.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="creating_a_minimum_input_file_part_1.html" class="btn btn-neutral float-left" title="1. Creating a minimum Input File: Part 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api/api.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Steven Firth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
