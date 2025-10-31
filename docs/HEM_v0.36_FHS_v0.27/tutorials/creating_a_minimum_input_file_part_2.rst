@@ -28,7 +28,7 @@ Points to note
 --------------
 
 * This minimum input file takes around 10 seconds to run a 12-month simulation.
-* It doesn't seem to be possible to use a nested schedules for defining other hourly input values such as the ColdWaterSource temperatures. Instead a 8,760-item Python list was created using ``[0] * 8760`` or similar.
+* It doesn't seem to be possible to use schedules for defining some hourly input values such as the ColdWaterSource temperatures. Instead a 8,760-item Python list was created using ``[0] * 8760`` or similar.
 * Some inputs are required even if they are not used, such as the Event 'Other' item or the HotWaterDemand 'Distribution' item.
 * The HotWaterSource 'hw cylinder' item is required, even if there is no hot water cylinder present in the dwelling.
 
