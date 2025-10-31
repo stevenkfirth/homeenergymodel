@@ -9,6 +9,7 @@ Tutorials
    :caption: Contents:
 
    creating_a_minimum_input_file_part_1
+   creating_a_minimum_input_file_part_2
 
 
 
